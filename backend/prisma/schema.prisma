@@ -42,8 +42,8 @@ model Student {
 model Invoice {
   id            Int           @id @default(autoincrement())
   invoiceNumber String        @unique
-  studentId     String
-  student       Student       @relation(fields: [studentId], references: [regNo])
+  studentId     Int
+  student       Student       @relation(fields: [studentId], references: [id])
   feeItemId     Int
   feeItem       FeeItem       @relation(fields: [feeItemId], references: [id])
   amount        Float

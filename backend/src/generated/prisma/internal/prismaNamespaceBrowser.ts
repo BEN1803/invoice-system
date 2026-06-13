@@ -176,7 +176,6 @@ export type StudentOrderByRelevanceFieldEnum = (typeof StudentOrderByRelevanceFi
 
 export const InvoiceOrderByRelevanceFieldEnum = {
   invoiceNumber: 'invoiceNumber',
-  studentId: 'studentId',
   controlNumber: 'controlNumber'
 } as const
 
