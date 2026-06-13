@@ -56,13 +56,15 @@ model Invoice {
 }
 
 model Payment {
-  id        Int           @id @default(autoincrement())
-  invoiceId Int
-  invoice   Invoice       @relation(fields: [invoiceId], references: [id])
-  amount    Float
-  reference String        @unique
-  method    PaymentMethod @default(BANK)
-  createdAt DateTime      @default(now())
+  id          Int           @id @default(autoincrement())
+  invoiceId   Int
+  invoice     Invoice       @relation(fields: [invoiceId], references: [id])
+  amount      Float
+  reference   String        @unique
+  method      PaymentMethod @default(BANK)
+  flwChargeId String?
+  status      String        @default("PENDING")
+  createdAt   DateTime      @default(now())
 }
 
 model FeeItem {
@@ -101,4 +103,5 @@ enum InvoiceStatus {
 enum PaymentMethod {
   BANK
   MOBILE_MONEY
+  CARD
 }
